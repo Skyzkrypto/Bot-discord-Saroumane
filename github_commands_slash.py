@@ -15,9 +15,14 @@ async def decompte(interaction: discord.Interaction, a: int):
     
     await interaction.response.send_message(f"Départ dans :")
     
-    for i in range (a, 0, -1):
+    while a > 0:
         await interaction.followup.send(a)
+        a -= 1
         await asyncio.sleep(0.5)
+
+    if a == 0:
+        interaction.followup.send("C'est parti !")
+
 
 @bot.tree.command()
 async def anonyme(interaction: discord.Interaction, *, message: str):
