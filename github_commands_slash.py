@@ -16,7 +16,7 @@ async def decompte(interaction: discord.Interaction, a: int):
     await interaction.response.send_message(f"Départ dans :")
     
     for i in range (a, 0, -1):
-        await interaction.response.send_message(a)
+        await interaction.followup.send(a)
         await asyncio.sleep(0.5)
 
 @bot.tree.command()
